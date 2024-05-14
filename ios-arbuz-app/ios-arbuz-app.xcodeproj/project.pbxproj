@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B05B7492BF3A2CE00549401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7482BF3A2CE00549401 /* AppDelegate.swift */; };
+		2B05B74B2BF3A2CE00549401 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B74A2BF3A2CE00549401 /* SceneDelegate.swift */; };
+		2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B74C2BF3A2CE00549401 /* ViewController.swift */; };
+		2B05B7522BF3A2CF00549401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B05B7512BF3A2CF00549401 /* Assets.xcassets */; };
+		2B05B7552BF3A2CF00549401 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B05B7532BF3A2CF00549401 /* LaunchScreen.storyboard */; };
+		2B05B75E2BF3A55700549401 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B75D2BF3A55700549401 /* Builder.swift */; };
+		2B05B7632BF3A70900549401 /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7622BF3A70900549401 /* TabBarViewPresenter.swift */; };
+		2B05B7652BF3A72700549401 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7642BF3A72700549401 /* TabBarView.swift */; };
+		2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7682BF3A80400549401 /* MainMenuView.swift */; };
+		2B05B76C2BF3A83E00549401 /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B76B2BF3A83E00549401 /* MainMenuPresenter.swift */; };
+		2B05B76F2BF3AFD600549401 /* MainMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B05B7452BF3A2CE00549401 /* ios-arbuz-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-arbuz-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B05B7482BF3A2CE00549401 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2B05B74A2BF3A2CE00549401 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2B05B74C2BF3A2CE00549401 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B05B7512BF3A2CF00549401 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B05B7542BF3A2CF00549401 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B05B7562BF3A2CF00549401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B05B75D2BF3A55700549401 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		2B05B7622BF3A70900549401 /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
+		2B05B7642BF3A72700549401 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		2B05B7682BF3A80400549401 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		2B05B76B2BF3A83E00549401 /* MainMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
+		2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B05B7422BF3A2CE00549401 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B05B73C2BF3A2CE00549401 = {
+			isa = PBXGroup;
+			children = (
+				2B05B7472BF3A2CE00549401 /* ios-arbuz-app */,
+				2B05B7462BF3A2CE00549401 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B05B7462BF3A2CE00549401 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7452BF3A2CE00549401 /* ios-arbuz-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B05B7472BF3A2CE00549401 /* ios-arbuz-app */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7482BF3A2CE00549401 /* AppDelegate.swift */,
+				2B05B74A2BF3A2CE00549401 /* SceneDelegate.swift */,
+				2B05B74C2BF3A2CE00549401 /* ViewController.swift */,
+				2B05B75C2BF3A54300549401 /* Builder */,
+				2B05B75F2BF3A6BD00549401 /* TabBarModule */,
+				2B05B7662BF3A7D600549401 /* MainMenuModule */,
+				2B05B7512BF3A2CF00549401 /* Assets.xcassets */,
+				2B05B7532BF3A2CF00549401 /* LaunchScreen.storyboard */,
+				2B05B7562BF3A2CF00549401 /* Info.plist */,
+			);
+			path = "ios-arbuz-app";
+			sourceTree = "<group>";
+		};
+		2B05B75C2BF3A54300549401 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B75D2BF3A55700549401 /* Builder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		2B05B75F2BF3A6BD00549401 /* TabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7612BF3A6E900549401 /* View */,
+				2B05B7602BF3A6E000549401 /* Presenter */,
+			);
+			path = TabBarModule;
+			sourceTree = "<group>";
+		};
+		2B05B7602BF3A6E000549401 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7622BF3A70900549401 /* TabBarViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2B05B7612BF3A6E900549401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7642BF3A72700549401 /* TabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B05B7662BF3A7D600549401 /* MainMenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B76D2BF3AFC900549401 /* Model */,
+				2B05B76A2BF3A83300549401 /* Presenter */,
+				2B05B7672BF3A7DE00549401 /* View */,
+			);
+			path = MainMenuModule;
+			sourceTree = "<group>";
+		};
+		2B05B7672BF3A7DE00549401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7682BF3A80400549401 /* MainMenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B05B76A2BF3A83300549401 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B76B2BF3A83E00549401 /* MainMenuPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2B05B76D2BF3AFC900549401 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B05B7442BF3A2CE00549401 /* ios-arbuz-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B05B7592BF3A2CF00549401 /* Build configuration list for PBXNativeTarget "ios-arbuz-app" */;
+			buildPhases = (
+				2B05B7412BF3A2CE00549401 /* Sources */,
+				2B05B7422BF3A2CE00549401 /* Frameworks */,
+				2B05B7432BF3A2CE00549401 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-arbuz-app";
+			productName = "ios-arbuz-app";
+			productReference = 2B05B7452BF3A2CE00549401 /* ios-arbuz-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B05B73D2BF3A2CE00549401 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					2B05B7442BF3A2CE00549401 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 2B05B7402BF3A2CE00549401 /* Build configuration list for PBXProject "ios-arbuz-app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B05B73C2BF3A2CE00549401;
+			productRefGroup = 2B05B7462BF3A2CE00549401 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B05B7442BF3A2CE00549401 /* ios-arbuz-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B05B7432BF3A2CE00549401 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B05B7552BF3A2CF00549401 /* LaunchScreen.storyboard in Resources */,
+				2B05B7522BF3A2CF00549401 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B05B7412BF3A2CE00549401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */,
+				2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */,
+				2B05B7492BF3A2CE00549401 /* AppDelegate.swift in Sources */,
+				2B05B7632BF3A70900549401 /* TabBarViewPresenter.swift in Sources */,
+				2B05B76C2BF3A83E00549401 /* MainMenuPresenter.swift in Sources */,
+				2B05B74B2BF3A2CE00549401 /* SceneDelegate.swift in Sources */,
+				2B05B76F2BF3AFD600549401 /* MainMenuModel.swift in Sources */,
+				2B05B7652BF3A72700549401 /* TabBarView.swift in Sources */,
+				2B05B75E2BF3A55700549401 /* Builder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2B05B7532BF3A2CF00549401 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B05B7542BF3A2CF00549401 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B05B7572BF3A2CF00549401 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B05B7582BF3A2CF00549401 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B05B75A2BF3A2CF00549401 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQKW5SV7PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-arbuz-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "adm.ios-arbuz-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B05B75B2BF3A2CF00549401 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQKW5SV7PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-arbuz-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "adm.ios-arbuz-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B05B7402BF3A2CE00549401 /* Build configuration list for PBXProject "ios-arbuz-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B05B7572BF3A2CF00549401 /* Debug */,
+				2B05B7582BF3A2CF00549401 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B05B7592BF3A2CF00549401 /* Build configuration list for PBXNativeTarget "ios-arbuz-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B05B75A2BF3A2CF00549401 /* Debug */,
+				2B05B75B2BF3A2CF00549401 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B05B73D2BF3A2CE00549401 /* Project object */;
+}
