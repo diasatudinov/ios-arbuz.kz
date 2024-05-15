@@ -20,6 +20,7 @@ class MainMenuView: UIViewController, ViewTodayHostable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Главная"
         if let items = presenter.datas{
             self.add(hostableView: MainMenuUIView(items: items))
         }

@@ -41,7 +41,7 @@ class Builder: BuilderProtocol {
     
     static func createBasketController() -> UIViewController {
         let basketView = MainMenuCELLView()
-        
+        //title = "Корзина"
         //basketView.view.backgroundColor = .green
         
         return basketView
