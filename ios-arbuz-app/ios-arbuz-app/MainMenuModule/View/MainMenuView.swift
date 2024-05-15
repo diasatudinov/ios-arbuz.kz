@@ -24,6 +24,7 @@ class MainMenuView: UIViewController, ViewTodayHostable {
         if let items = presenter.datas{
             self.add(hostableView: MainMenuUIView(items: items))
         }
+        
     }
 
 }

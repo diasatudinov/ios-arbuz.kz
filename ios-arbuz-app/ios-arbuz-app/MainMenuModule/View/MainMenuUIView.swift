@@ -9,12 +9,18 @@ import SwiftUI
 
 
 struct MainMenuUIView: View {
+    
+    
     var items: [MenuItem]
     @State private var headerOffset: CGFloat = 0
     @State private var isHeaderHidden = false
+    
+       
+    
+    
     var body: some View {
         NavigationView {
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 GeometryReader { geometry in
                     Color.clear
                         .preference(key: OffsetKey.self, value: geometry.frame(in: .global).minY)
@@ -40,7 +46,7 @@ struct MainMenuUIView: View {
                     }
                     Text("Новинки для Вас")
                         .font(.title3).bold()
-                    ScrollView(.horizontal) {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(items.reversed().prefix(6)) { item in
                                 ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
@@ -48,6 +54,7 @@ struct MainMenuUIView: View {
                             }
                         }
                     }
+                    .padding(.bottom, 20)
                     Text("для Friends")
                         .font(.title3).bold()
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)], spacing: 8) {
@@ -69,9 +76,9 @@ struct MainMenuUIView: View {
     }
 }
 
-#Preview {
-    MainMenuUIView(items: [])
-}
+//#Preview {
+//    MainMenuUIView(items: [])
+//}
 
 struct OffsetKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
