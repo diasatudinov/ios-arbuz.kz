@@ -9,20 +9,22 @@ import UIKit
 
 protocol MainMenuPresenterProtocol: AnyObject {
     init(view: MainMenuViewProtocol)
-    func getPositions()
+    var datas: [MenuItem]? {get set}
+    func getData()
 }
 
 class MainMenuPresenter {
     weak var view: MainMenuViewProtocol?
+    var datas: [MenuItem]?
     required init(view: MainMenuViewProtocol) {
         self.view = view
-        getPositions()
+        getData()
     }
 }
 
 extension MainMenuPresenter: MainMenuPresenterProtocol {
-    func getPositions() {
-//        self.positions = PositionData.getMockData()
-        view?.showPositions()
+    func getData() {
+        self.datas = PositionData.getMockData()
+        view?.showData()
     }
 }
