@@ -21,6 +21,7 @@
 		2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7702BF4A74300549401 /* MainMenuUIView.swift */; };
 		2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7782BF4B8F900549401 /* ProductCellUIView.swift */; };
 		2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77A2BF4BA3500549401 /* ViewHost.swift */; };
+		2B05B77D2BF513B200549401 /* HeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77C2BF513B200549401 /* HeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		2B05B7702BF4A74300549401 /* MainMenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuUIView.swift; sourceTree = "<group>"; };
 		2B05B7782BF4B8F900549401 /* ProductCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellUIView.swift; sourceTree = "<group>"; };
 		2B05B77A2BF4BA3500549401 /* ViewHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHost.swift; sourceTree = "<group>"; };
+		2B05B77C2BF513B200549401 /* HeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				2B05B7682BF3A80400549401 /* MainMenuView.swift */,
 				2B05B7702BF4A74300549401 /* MainMenuUIView.swift */,
+				2B05B77C2BF513B200549401 /* HeaderUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B05B77D2BF513B200549401 /* HeaderUIView.swift in Sources */,
 				2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */,
 				2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */,
 				2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */,

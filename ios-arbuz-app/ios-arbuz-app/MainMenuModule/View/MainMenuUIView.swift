@@ -21,7 +21,7 @@ struct MainMenuUIView: View {
                         .onPreferenceChange(OffsetKey.self) { value in
                             withAnimation {
                                 headerOffset = value
-                                isHeaderHidden = value < -5 // Скрыть хэдер, если скролл больше -50
+                                isHeaderHidden = value < 50 // Скрыть хэдер, если скролл больше -50
                             }
                         }
                 }
@@ -32,10 +32,10 @@ struct MainMenuUIView: View {
                         Button {
                             
                         } label: {
-                            MainHeaderView()
-                                .frame(height: 100)
+                            HeaderUIView()
+                                .frame(height: 50)
                                 .offset(y: headerOffset < 0 ? headerOffset : 0)
-                                .animation(.smooth)
+                                .animation(.easeInOut)
                         }
                     }
                     Text("Новинки для Вас")
@@ -59,15 +59,7 @@ struct MainMenuUIView: View {
                             
                         }
                     }
-                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)], spacing: 8) {
-                        ForEach(items.prefix(6)) { item in
-                            VStack {
-                                ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
-                                    .frame(height: UIScreen.main.bounds.height/3.5)
-                            }
-                            
-                        }
-                    }
+                    
                     
                 }
             }
@@ -86,16 +78,5 @@ struct OffsetKey: PreferenceKey {
     
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
-    }
-}
-
-struct MainHeaderView: View {
-    var body: some View {
-        ZStack {
-            Color.blue
-            Text("Header")
-                .foregroundColor(.white)
-                .font(.title)
-        }
     }
 }
