@@ -18,6 +18,9 @@
 		2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7682BF3A80400549401 /* MainMenuView.swift */; };
 		2B05B76C2BF3A83E00549401 /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B76B2BF3A83E00549401 /* MainMenuPresenter.swift */; };
 		2B05B76F2BF3AFD600549401 /* MainMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */; };
+		2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7702BF4A74300549401 /* MainMenuUIView.swift */; };
+		2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7782BF4B8F900549401 /* ProductCellUIView.swift */; };
+		2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77A2BF4BA3500549401 /* ViewHost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		2B05B7682BF3A80400549401 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		2B05B76B2BF3A83E00549401 /* MainMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
 		2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuModel.swift; sourceTree = "<group>"; };
+		2B05B7702BF4A74300549401 /* MainMenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuUIView.swift; sourceTree = "<group>"; };
+		2B05B7782BF4B8F900549401 /* ProductCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellUIView.swift; sourceTree = "<group>"; };
+		2B05B77A2BF4BA3500549401 /* ViewHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 				2B05B75C2BF3A54300549401 /* Builder */,
 				2B05B75F2BF3A6BD00549401 /* TabBarModule */,
 				2B05B7662BF3A7D600549401 /* MainMenuModule */,
+				2B05B7752BF4B8BD00549401 /* ProductModule */,
 				2B05B7512BF3A2CF00549401 /* Assets.xcassets */,
 				2B05B7532BF3A2CF00549401 /* LaunchScreen.storyboard */,
 				2B05B7562BF3A2CF00549401 /* Info.plist */,
@@ -83,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2B05B75D2BF3A55700549401 /* Builder.swift */,
+				2B05B77A2BF4BA3500549401 /* ViewHost.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				2B05B7682BF3A80400549401 /* MainMenuView.swift */,
+				2B05B7702BF4A74300549401 /* MainMenuUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +153,30 @@
 				2B05B76E2BF3AFD600549401 /* MainMenuModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2B05B7752BF4B8BD00549401 /* ProductModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7762BF4B8D400549401 /* ProductCell */,
+			);
+			path = ProductModule;
+			sourceTree = "<group>";
+		};
+		2B05B7762BF4B8D400549401 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7772BF4B8E800549401 /* View */,
+			);
+			path = ProductCell;
+			sourceTree = "<group>";
+		};
+		2B05B7772BF4B8E800549401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7782BF4B8F900549401 /* ProductCellUIView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */,
 				2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */,
+				2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */,
+				2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */,
 				2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */,
 				2B05B7492BF3A2CE00549401 /* AppDelegate.swift in Sources */,
 				2B05B7632BF3A70900549401 /* TabBarViewPresenter.swift in Sources */,
@@ -294,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -351,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -6,37 +6,43 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol MainMenuViewProtocol: AnyObject {
-    func showPositions()
+    func showData()
+    
 }
 
-class MainMenuView: UIViewController {
+class MainMenuView: UIViewController, ViewTodayHostable {
 
     
     var presenter: MainMenuPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        if let items = presenter.datas{
+            self.add(hostableView: MainMenuUIView(items: items))
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension MainMenuView: MainMenuViewProtocol {
-    func showPositions() {
+    func showData() {
+        
     }
     
+}
+
+class MainMenuCELLView: UIViewController, ViewTodayHostable {
+
+    
+    var presenter: MainMenuPresenterProtocol!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        //self.add(hostableView: ProductCellUIView())
+    }
+
 }

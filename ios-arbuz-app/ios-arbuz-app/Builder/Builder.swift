@@ -40,9 +40,9 @@ class Builder: BuilderProtocol {
     }
     
     static func createBasketController() -> UIViewController {
-        let basketView = MainMenuView()
+        let basketView = MainMenuCELLView()
         
-        basketView.view.backgroundColor = .green
+        //basketView.view.backgroundColor = .green
         
         return basketView
     }
