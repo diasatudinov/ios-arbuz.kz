@@ -42,7 +42,7 @@ struct MainMenuUIView: View {
 //                            let nextVC = UINavigationController(rootViewController: BasketView())
 //                            //UINavigationController.pushViewController(nextVC)
 //                            navigationController.present(nextVC, animated: true)
-                            TheAppRouter.shared.move(to: .basket, type: .present(animated: true))
+                            TheAppRouter.shared.move(to: .address, type: .present(animated: true))
                             
                         } label: {
                             HeaderUIView()
@@ -58,6 +58,13 @@ struct MainMenuUIView: View {
                             ForEach(items.reversed().prefix(6)) { item in
                                 ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
                                     .frame(height: UIScreen.main.bounds.height/3.5)
+                                    .onTapGesture {
+                                        print(item.name)
+                                        TheAppRouter.shared.move(
+                                            to: .productDetails(image: item.image, name: item.name, description: item.description, additionalDescription: item.additionalDescription, storageConditions: item.storageConditions, country: item.country, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText),
+                                            type: .present(animated: true)
+                                        )
+                                    }
                             }
                         }
                     }
@@ -69,6 +76,13 @@ struct MainMenuUIView: View {
                             VStack {
                                 ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
                                     .frame(height: UIScreen.main.bounds.height/3.5)
+                                    .onTapGesture {
+                                        print(item.name)
+                                        TheAppRouter.shared.move(
+                                            to: .productDetails(image: item.image, name: item.name, description: item.description, additionalDescription: item.additionalDescription, storageConditions: item.storageConditions, country: item.country, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText),
+                                            type: .present(animated: true)
+                                        )
+                                    }
                             }
                             
                         }

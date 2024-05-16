@@ -15,6 +15,8 @@ final class TheAppRouter {
         case home
         case tabBar
         case basket
+        case address
+        case productDetails(image: String, name: String, description: String, additionalDescription: String, storageConditions: String, country: String, price: Int, minQuantity: Double, minQuantityText: String)
     }
     
     enum TransitionTypeSingleApp {
@@ -60,6 +62,12 @@ final class TheAppRouter {
         }
     }
     
+    func backFromSheet() {
+        DispatchQueue.main.async {
+            self.navigationSuperController.dismiss(animated: true)
+        }
+    }
+    
     func move(to destination: TheAppRouter.DestinationIndividual, type: TheAppRouter.TransitionTypeSingleApp) {
         var viewController: UIViewController? {
             switch destination {
@@ -75,6 +83,22 @@ final class TheAppRouter {
                 return BasketView()
             case .tabBar:
                 return Builder.createTabBarController()
+            case .address:
+                let vc = AddressView()
+                if #available(iOS 15.0, *) {
+                    if let sheet = vc.sheetPresentationController{
+                        sheet.detents = [.medium()]
+                    }
+                    return vc
+                } else {
+                    // Fallback on earlier versions
+                    return vc
+                }
+
+            case .productDetails(image: let image, name: let name, description: let description, additionalDescription: let additionalDescription, storageConditions: let storageConditions, country: let country, price: let price, minQuantity: let minQuantity, minQuantityText: let minQuantityText):
+                let productDetailsVC = ProductDetailsView()
+                productDetailsVC.setup(image: image, name: name, description: description, additionalDescription: additionalDescription, storageConditions: storageConditions, country: country, price: price, minQuantity: minQuantity, minQuantityText: minQuantityText)
+                return productDetailsVC
             }
         
         }
