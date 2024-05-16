@@ -31,18 +31,18 @@ class Builder: BuilderProtocol {
         return tabBarView
     }
     
+    
+    
     static func createMainMenuController() -> UIViewController {
         let mainMenuView = MainMenuView()
         let presenter = MainMenuPresenter(view: mainMenuView)
         mainMenuView.presenter = presenter
         
-        return mainMenuView
+        return UINavigationController(rootViewController: mainMenuView)
     }
     
     static func createBasketController() -> UIViewController {
-        let basketView = MainMenuCELLView()
-        
-        //basketView.view.backgroundColor = .green
+        let basketView = BasketView()
         
         return basketView
     }

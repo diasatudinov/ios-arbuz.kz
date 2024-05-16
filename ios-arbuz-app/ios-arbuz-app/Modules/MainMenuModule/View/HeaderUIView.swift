@@ -1,0 +1,33 @@
+//
+//  HeaderUIView.swift
+//  ios-arbuz-app
+//
+//  Created by Dias Atudinov on 15.05.2024.
+//
+
+import SwiftUI
+
+struct HeaderUIView: View {
+    var body: some View {
+        ZStack {
+            HStack{
+                VStack(alignment: .leading){
+                    Text("Алматы, завтра 07:00-09:00")
+                        .font(.system(size: 12))
+                        .foregroundColor(.black)
+                    Text("улица Розыбакиева, 999, кв 11")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.black)
+                }
+                Spacer()
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.black)
+                    .padding()
+            }
+        }
+    }
+}
+
+#Preview {
+    HeaderUIView()
+}
