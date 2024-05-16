@@ -31,7 +31,7 @@ class TabBarView: UITabBarController {
         
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.systemGreen], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .disabled)
         
     }
     
@@ -51,11 +51,10 @@ class TabBarView: UITabBarController {
         }
         
         self.view.subviews.compactMap { $0 as? UIButton }.forEach {
-                $0.tintColor = .black
-            }
-            
-            // Установите выбранной кнопке черный цвет
-            sender.tintColor = .systemGreen
+            $0.tintColor = .black
+        }
+        
+        sender.tintColor = .systemGreen
         
         self.selectedIndex = sender.tag
     }

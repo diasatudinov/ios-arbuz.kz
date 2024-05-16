@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 struct MainMenuUIView: View {
@@ -27,7 +28,8 @@ struct MainMenuUIView: View {
                         .onPreferenceChange(OffsetKey.self) { value in
                             withAnimation {
                                 headerOffset = value
-                                isHeaderHidden = value < 50 // Скрыть хэдер, если скролл больше -50
+                                isHeaderHidden = value < UIScreen.main.bounds.height / 19
+                                // Скрыть хэдер, если скролл больше -50
                             }
                         }
                 }
@@ -36,6 +38,11 @@ struct MainMenuUIView: View {
                 VStack(alignment: .leading) {
                     if !isHeaderHidden {
                         Button {
+//                            let navigationController = UINavigationController()
+//                            let nextVC = UINavigationController(rootViewController: BasketView())
+//                            //UINavigationController.pushViewController(nextVC)
+//                            navigationController.present(nextVC, animated: true)
+                            TheAppRouter.shared.move(to: .basket, type: .present(animated: true))
                             
                         } label: {
                             HeaderUIView()

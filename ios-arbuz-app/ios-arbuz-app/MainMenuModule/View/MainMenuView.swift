@@ -15,12 +15,13 @@ protocol MainMenuViewProtocol: AnyObject {
 
 class MainMenuView: UIViewController, ViewTodayHostable {
 
-    
     var presenter: MainMenuPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Главная"
+        navigationController?.navigationBar.isHidden = true
         if let items = presenter.datas{
             self.add(hostableView: MainMenuUIView(items: items))
         }

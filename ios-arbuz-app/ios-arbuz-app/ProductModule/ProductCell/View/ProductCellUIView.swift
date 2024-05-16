@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCellUIView: View {
     @State var isFavorite: Bool = false
-    @State var productCount = 0
+    @State var productCount = 0.0
     let image: String
     let name: String
     let additionalDescription: String
@@ -52,7 +52,7 @@ struct ProductCellUIView: View {
                     if minQuantity  == 1 {
                         Text("\(minQuantity, specifier: "%.0f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     } else {
-                        Text("\(minQuantity, specifier: "%.2f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
+                        Text("\(minQuantity, specifier: "%.1f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     }
                     Spacer()
                 }.padding(.bottom, 15).frame(width: UIScreen.main.bounds.width/3.2)
@@ -60,7 +60,7 @@ struct ProductCellUIView: View {
                 HStack{
                     if productCount == 0 {
                         Button{
-                            productCount += 1
+                            productCount += minQuantity
                         } label: {
                             
                             HStack() {
@@ -77,7 +77,7 @@ struct ProductCellUIView: View {
                         HStack {
                             Spacer()
                             Button{
-                                productCount -= 1
+                                productCount -= minQuantity
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -88,14 +88,21 @@ struct ProductCellUIView: View {
                             }
                             Spacer()
                             VStack {
-                                Text("\(productCount)").font(.system(size: 15)).foregroundColor(.white).bold()
+                                
+                                if minQuantity  == 1 {
+                                    Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
+                                } else {
+                                    Text("\(productCount, specifier: "%.1f")").font(.system(size: 15)).foregroundColor(.white).bold()
+                                }
+                                
+                                
                                 if minQuantityText == "кг"{
                                     Text("кг").font(.system(size: 10)).foregroundColor(.white).bold()
                                 }
                             }
                             Spacer()
                             Button{
-                                productCount += 1
+                                productCount += minQuantity
                             } label: {
                                 
                                 HStack(spacing: 10) {
