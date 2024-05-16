@@ -24,6 +24,10 @@
 		2B05B77D2BF513B200549401 /* HeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77C2BF513B200549401 /* HeaderUIView.swift */; };
 		2B05B7812BF6161800549401 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7802BF6161800549401 /* BasketView.swift */; };
 		2B05B7842BF6208A00549401 /* TheAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7832BF6208A00549401 /* TheAppRouter.swift */; };
+		2B05B7882BF62A7600549401 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7872BF62A7600549401 /* AddressView.swift */; };
+		2B05B78A2BF62ADF00549401 /* AddressUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7892BF62ADF00549401 /* AddressUIView.swift */; };
+		2B05B78C2BF6342200549401 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B78B2BF6342200549401 /* ProductDetailsView.swift */; };
+		2B05B78E2BF6344700549401 /* ProductDetailsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		2B05B77C2BF513B200549401 /* HeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUIView.swift; sourceTree = "<group>"; };
 		2B05B7802BF6161800549401 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		2B05B7832BF6208A00549401 /* TheAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAppRouter.swift; sourceTree = "<group>"; };
+		2B05B7872BF62A7600549401 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		2B05B7892BF62ADF00549401 /* AddressUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUIView.swift; sourceTree = "<group>"; };
+		2B05B78B2BF6342200549401 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,8 @@
 				2B05B7682BF3A80400549401 /* MainMenuView.swift */,
 				2B05B7702BF4A74300549401 /* MainMenuUIView.swift */,
 				2B05B77C2BF513B200549401 /* HeaderUIView.swift */,
+				2B05B7872BF62A7600549401 /* AddressView.swift */,
+				2B05B7892BF62ADF00549401 /* AddressUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +234,8 @@
 		2B05B7862BF6211600549401 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B05B78B2BF6342200549401 /* ProductDetailsView.swift */,
+				2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +314,7 @@
 				2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */,
 				2B05B7842BF6208A00549401 /* TheAppRouter.swift in Sources */,
 				2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */,
+				2B05B78E2BF6344700549401 /* ProductDetailsUIView.swift in Sources */,
 				2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */,
 				2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */,
 				2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */,
@@ -311,8 +324,11 @@
 				2B05B74B2BF3A2CE00549401 /* SceneDelegate.swift in Sources */,
 				2B05B76F2BF3AFD600549401 /* MainMenuModel.swift in Sources */,
 				2B05B7652BF3A72700549401 /* TabBarView.swift in Sources */,
+				2B05B7882BF62A7600549401 /* AddressView.swift in Sources */,
 				2B05B7812BF6161800549401 /* BasketView.swift in Sources */,
+				2B05B78A2BF62ADF00549401 /* AddressUIView.swift in Sources */,
 				2B05B75E2BF3A55700549401 /* Builder.swift in Sources */,
+				2B05B78C2BF6342200549401 /* ProductDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

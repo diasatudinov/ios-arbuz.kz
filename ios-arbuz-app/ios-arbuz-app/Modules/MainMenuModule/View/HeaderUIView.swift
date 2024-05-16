@@ -13,10 +13,10 @@ struct HeaderUIView: View {
             HStack{
                 VStack(alignment: .leading){
                     Text("Алматы, завтра 07:00-09:00")
-                        .font(.system(size: 12))
+                        .font(.system(size: 14))
                         .foregroundColor(.black)
                     Text("улица Розыбакиева, 999, кв 11")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundColor(.black)
                 }
                 Spacer()
