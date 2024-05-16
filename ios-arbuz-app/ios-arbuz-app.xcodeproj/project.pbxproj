@@ -23,6 +23,7 @@
 		2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77A2BF4BA3500549401 /* ViewHost.swift */; };
 		2B05B77D2BF513B200549401 /* HeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B77C2BF513B200549401 /* HeaderUIView.swift */; };
 		2B05B7812BF6161800549401 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7802BF6161800549401 /* BasketView.swift */; };
+		2B05B7842BF6208A00549401 /* TheAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7832BF6208A00549401 /* TheAppRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		2B05B77A2BF4BA3500549401 /* ViewHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHost.swift; sourceTree = "<group>"; };
 		2B05B77C2BF513B200549401 /* HeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUIView.swift; sourceTree = "<group>"; };
 		2B05B7802BF6161800549401 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		2B05B7832BF6208A00549401 /* TheAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAppRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +82,7 @@
 				2B05B74A2BF3A2CE00549401 /* SceneDelegate.swift */,
 				2B05B74C2BF3A2CE00549401 /* ViewController.swift */,
 				2B05B75C2BF3A54300549401 /* Builder */,
-				2B05B75F2BF3A6BD00549401 /* TabBarModule */,
-				2B05B7662BF3A7D600549401 /* MainMenuModule */,
-				2B05B7752BF4B8BD00549401 /* ProductModule */,
-				2B05B77E2BF615FC00549401 /* BasketModule */,
+				2B05B7822BF6206E00549401 /* Modules */,
 				2B05B7512BF3A2CF00549401 /* Assets.xcassets */,
 				2B05B7532BF3A2CF00549401 /* LaunchScreen.storyboard */,
 				2B05B7562BF3A2CF00549401 /* Info.plist */,
@@ -96,6 +95,7 @@
 			children = (
 				2B05B75D2BF3A55700549401 /* Builder.swift */,
 				2B05B77A2BF4BA3500549401 /* ViewHost.swift */,
+				2B05B7832BF6208A00549401 /* TheAppRouter.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -201,6 +201,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2B05B7822BF6206E00549401 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7852BF620E400549401 /* ProductDetailsModule */,
+				2B05B75F2BF3A6BD00549401 /* TabBarModule */,
+				2B05B7662BF3A7D600549401 /* MainMenuModule */,
+				2B05B7752BF4B8BD00549401 /* ProductModule */,
+				2B05B77E2BF615FC00549401 /* BasketModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2B05B7852BF620E400549401 /* ProductDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7862BF6211600549401 /* View */,
+			);
+			path = ProductDetailsModule;
+			sourceTree = "<group>";
+		};
+		2B05B7862BF6211600549401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +300,7 @@
 			files = (
 				2B05B77D2BF513B200549401 /* HeaderUIView.swift in Sources */,
 				2B05B7712BF4A74300549401 /* MainMenuUIView.swift in Sources */,
+				2B05B7842BF6208A00549401 /* TheAppRouter.swift in Sources */,
 				2B05B74D2BF3A2CE00549401 /* ViewController.swift in Sources */,
 				2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */,
 				2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */,

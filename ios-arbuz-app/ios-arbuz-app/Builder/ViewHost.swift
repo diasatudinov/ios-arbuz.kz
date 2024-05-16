@@ -14,10 +14,6 @@ struct ViewHost {
         uiView.translatesAutoresizingMaskIntoConstraints = false
         return (hostingController, uiView)
     }
-    
-    let modifiedAnotherString = "SuperCoolTextRandomly".enumerated().map { index, char in
-        return index % 2 == 0 ? char.uppercased() : char.lowercased()
-    }
 }
 
 protocol ViewTodayHostable {
