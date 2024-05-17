@@ -43,18 +43,26 @@ class BasketView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        basketManager.delegate = self
         setupViews()
         basketManager.$items.sink { [weak self] _ in
             self?.collectionView.reloadData()
         }.store(in: &cancellables)
+        
     }
     
     @objc private func buttonTapped() {
-        print("AAAA")
+        print("basketManager.summa", basketManager.summa)
+        
+       // basketManager.clearCart()
     }
     
     private func setupViews() {
+        if self.basketManager.summa == 0{
+            self.button.setTitle("Перейти к оплате", for: .normal)
+        } else {
+            self.button.setTitle("Перейти к оплате \(self.basketManager.summa)", for: .normal)
+        }
         view.addSubview(collectionView)
         collectionView.addSubview(button)
         
@@ -95,5 +103,21 @@ extension BasketView: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         return CGSize(width: view.bounds.width, height: 85)
     }
     
+    
+}
+
+extension BasketView: BasketDelegate {
+    func reloadData() {
+        DispatchQueue.main.async {
+            if self.basketManager.summa == 0{
+                self.button.setTitle("Перейти к оплате", for: .normal)
+            } else {
+                self.button.setTitle("Перейти к оплате \(self.basketManager.summa)", for: .normal)
+            }
+            print("AAAA")
+            self.collectionView.reloadData()
+        }
+        
+    }
     
 }

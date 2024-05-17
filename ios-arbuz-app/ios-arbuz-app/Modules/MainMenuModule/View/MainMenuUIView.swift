@@ -53,7 +53,7 @@ struct MainMenuUIView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(items.reversed().prefix(6)) { item in
-                                ProductCellUIView(item: item).environmentObject(basketManager)
+                                ProductCellUIView(item: item)
                                     .frame(height: UIScreen.main.bounds.height/3.5)
                                     .onTapGesture {
                                         print(item.name)
@@ -73,7 +73,7 @@ struct MainMenuUIView: View {
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)], spacing: 8) {
                         ForEach(items.prefix(6)) { item in
                             VStack {
-                                ProductCellUIView(item: item).environmentObject(basketManager)
+                                ProductCellUIView(item: item)
                                     .onTapGesture {
                                         print(item.name)
                                         TheAppRouter.shared.move(

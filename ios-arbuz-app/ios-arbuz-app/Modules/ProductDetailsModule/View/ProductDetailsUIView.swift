@@ -129,6 +129,11 @@ struct ProductDetailsUIView: View {
                             if item.minQuantityText == "кг" {
                                 kgPrice += Double(item.price)
                             }
+                            
+                        
+                                basketManager.addToSumma(summa: Double(item.price))
+                            
+                            
                         } label: {
                             
                             HStack(spacing: 7) {
@@ -163,6 +168,10 @@ struct ProductDetailsUIView: View {
                                     if item.minQuantityText == "кг" {
                                         kgPrice -= Double(item.price)
                                     }
+                                    
+                                    
+                                    basketManager.subFromSumma(summa: Double(item.price))
+                                    
                                 }
                                 
                             } label: {
@@ -197,6 +206,10 @@ struct ProductDetailsUIView: View {
                                 if item.minQuantityText == "кг" {
                                     kgPrice += Double(item.price)
                                 }
+                                
+                                    basketManager.addToSumma(summa: Double(item.price))
+                                
+                                
                             } label: {
                                 
                                 HStack(spacing: 10) {

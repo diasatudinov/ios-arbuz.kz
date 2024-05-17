@@ -7,8 +7,25 @@
 
 import SwiftUI
 
+protocol BasketDelegate: AnyObject {
+    func reloadData()
+}
+
 class BasketManager: ObservableObject {
     @Published var items: [MenuItem] = []
+    @Published var summa: Double = 0.0
+        
+    weak var delegate: BasketDelegate?
+    
+    func addToSumma(summa: Double) {
+        self.summa += summa
+        delegate?.reloadData()
+    }
+    
+    func subFromSumma(summa: Double) {
+        self.summa -= summa
+        delegate?.reloadData()
+    }
     
     func addItem(_ item: MenuItem) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
@@ -33,12 +50,14 @@ class BasketManager: ObservableObject {
     func removeFullItem(_ item: MenuItem) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             //item.count = 0
+            summa -= item.count * Double(item.price)
             items.remove(at: index)
             
         }
     }
     
     func clearCart() {
+        summa = 0.0
         items.removeAll()
     }
 }

@@ -13,6 +13,10 @@ struct ProductCellUIView: View {
     @State var productCount = 0.0
     @State var item: MenuItem
     
+    init(item: MenuItem) {
+        self.item = item
+    }
+    
     var body: some View {
             VStack(alignment: .leading, spacing: 0){
                 ZStack {
@@ -59,6 +63,9 @@ struct ProductCellUIView: View {
                         Button{
                             productCount += item.minQuantity
                             basketManager.addItem(item)
+                            
+                            basketManager.addToSumma(summa: Double(item.price))
+                            
                             print(item.count)
                         } label: {
                             
@@ -78,6 +85,7 @@ struct ProductCellUIView: View {
                             Button{
                                 productCount -= item.minQuantity
                                 basketManager.removeItem(item)
+                                basketManager.subFromSumma(summa: Double(item.price))
                                 print(item.count)
                             } label: {
                                 
@@ -105,7 +113,8 @@ struct ProductCellUIView: View {
                             Button{
                                 productCount += item.minQuantity
                                 basketManager.addItem(item)
-                                
+                                basketManager.addToSumma(summa: Double(item.price))
+
                                 print(item.count)
                             } label: {
                                 
