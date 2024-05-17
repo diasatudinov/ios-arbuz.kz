@@ -12,20 +12,13 @@ import SwiftUI
 class BasketViewCell: UICollectionViewCell {
     
     private var hostingController: UIHostingController<BasketUIViewCell>?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupHostingController()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupHostingController()
-    }
-    
-    private func setupHostingController() {
-        let basketUIViewCell = BasketUIViewCell()
+    //let basketManager: BasketManager? = nil
+    func setupHostingController(item: MenuItem, basketManager: BasketManager) {
+        
+        let basketUIViewCell = BasketUIViewCell(item: item, basketManager: basketManager)
+        
         hostingController = UIHostingController(rootView: basketUIViewCell)
+        
         
         guard let hostingController = hostingController else { return }
         

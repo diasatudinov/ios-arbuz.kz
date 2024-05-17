@@ -19,6 +19,8 @@ protocol BuilderProtocol{
 
 class Builder: BuilderProtocol {
     
+    static var basketManager = BasketManager()
+    
     static func getMainMenuController() -> UIViewController {
         MainMenuView()
     }
@@ -36,6 +38,7 @@ class Builder: BuilderProtocol {
     static func createMainMenuController() -> UIViewController {
         let mainMenuView = MainMenuView()
         let presenter = MainMenuPresenter(view: mainMenuView)
+        mainMenuView.basketManager = basketManager
         mainMenuView.presenter = presenter
         
         return UINavigationController(rootViewController: mainMenuView)
@@ -43,6 +46,7 @@ class Builder: BuilderProtocol {
     
     static func createBasketController() -> UIViewController {
         let basketView = BasketView()
+        basketView.basketManager = basketManager
         basketView.title = "Корзина"
         return basketView
     }

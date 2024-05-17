@@ -35,7 +35,11 @@ class PositionData: Identifiable {
 }
 
 
-class MenuItem: Identifiable {
+class MenuItem: Identifiable, Equatable {
+    static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
+        true
+    }
+    
     let id = UUID().uuidString
     let image: String
     let name: String

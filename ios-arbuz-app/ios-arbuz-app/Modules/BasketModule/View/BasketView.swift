@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class BasketView: UIViewController {
+
+    var basketManager: BasketManager!
 
     
     let layout = UICollectionViewFlowLayout()
@@ -36,12 +39,15 @@ class BasketView: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
-    
+    private var cancellables = Set<AnyCancellable>()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setupViews()
+        basketManager.$items.sink { [weak self] _ in
+            self?.collectionView.reloadData()
+        }.store(in: &cancellables)
     }
     
     @objc private func buttonTapped() {
@@ -74,11 +80,14 @@ class BasketView: UIViewController {
 
 extension BasketView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        basketManager.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BasketViewCell", for: indexPath) as! BasketViewCell
+        
+        let item = basketManager.items[indexPath.row]
+        cell.setupHostingController(item: item, basketManager: basketManager)
         return cell
     }
     
