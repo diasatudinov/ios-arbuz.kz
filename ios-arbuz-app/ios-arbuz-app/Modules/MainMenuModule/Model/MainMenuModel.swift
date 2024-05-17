@@ -46,6 +46,7 @@ class MenuItem: Identifiable {
     let price: Int
     let minQuantity: Double
     let minQuantityText: String
+    var count: Double = 0.0
     
     init(image: String, name: String, description: String, additionalDescription: String, country: String, storageConditions: String, price: Int, minQuantity: Double, minQuantityText: String) {
         self.image = image

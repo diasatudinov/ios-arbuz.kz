@@ -16,6 +16,7 @@ protocol MainMenuViewProtocol: AnyObject {
 class MainMenuView: UIViewController, ViewTodayHostable {
 
     var presenter: MainMenuPresenterProtocol!
+    var cartManager: BasketManager! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

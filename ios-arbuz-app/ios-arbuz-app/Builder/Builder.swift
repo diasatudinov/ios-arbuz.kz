@@ -43,7 +43,7 @@ class Builder: BuilderProtocol {
     
     static func createBasketController() -> UIViewController {
         let basketView = BasketView()
-        
+        basketView.title = "Корзина"
         return basketView
     }
 }
