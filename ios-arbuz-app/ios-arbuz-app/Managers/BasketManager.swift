@@ -27,6 +27,11 @@ class BasketManager: ObservableObject {
         delegate?.reloadData()
     }
     
+    func favoriteItemToggle(_ item: MenuItem) {
+        item.isFavorite.toggle()
+        
+    }
+    
     func addItem(_ item: MenuItem) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             items[index].count += item.minQuantity
@@ -49,9 +54,10 @@ class BasketManager: ObservableObject {
     
     func removeFullItem(_ item: MenuItem) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
-            //item.count = 0
             summa -= item.count * Double(item.price)
             items.remove(at: index)
+            item.count = 0
+            delegate?.reloadData()
             
         }
     }

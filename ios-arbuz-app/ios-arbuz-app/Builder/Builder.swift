@@ -29,7 +29,6 @@ class Builder: BuilderProtocol {
         let tabBarView = TabBarView()
         let presenter = TabBarViewPresenter(view: tabBarView)
         tabBarView.presenter = presenter
-        
         return tabBarView
     }
     
@@ -38,6 +37,7 @@ class Builder: BuilderProtocol {
     static func createMainMenuController() -> UIViewController {
         let mainMenuView = MainMenuView()
         let presenter = MainMenuPresenter(view: mainMenuView)
+        mainMenuView.title = "Главная"
         mainMenuView.basketManager = basketManager
         mainMenuView.presenter = presenter
         

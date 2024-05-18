@@ -17,6 +17,7 @@ final class TheAppRouter {
         case basket
         case address
         case productDetails(item: MenuItem, basketManager: BasketManager)
+        case payment
     }
     
     enum TransitionTypeSingleApp {
@@ -99,6 +100,8 @@ final class TheAppRouter {
                 let productDetailsVC = ProductDetailsView()
                 productDetailsVC.setup(item: item, basketManager: basketManager)
                 return productDetailsVC
+            case .payment:
+                return PaymentViewController()
             }
         
         }
@@ -116,6 +119,7 @@ final class TheAppRouter {
                     self.navigationController.present(viewController, animated: animated)
                 }
             }
+            
         }
         
         

@@ -31,6 +31,7 @@ struct BasketUIViewCell: View {
                     .cornerRadius(15)
                     .overlay(
                         Button {
+                            basketManager.favoriteItemToggle(item)
                             isFavorite.toggle()
                         } label: {
                             Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -142,7 +143,10 @@ struct BasketUIViewCell: View {
             
             
             Spacer()
-        }.onAppear {
+        }
+        .padding(.horizontal, 8)
+        .onAppear {
+            isFavorite = item.isFavorite 
             productCount = item.count
             if item.minQuantityText == "кг" {
                 

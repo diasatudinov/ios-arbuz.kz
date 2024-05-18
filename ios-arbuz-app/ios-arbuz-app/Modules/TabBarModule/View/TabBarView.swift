@@ -31,8 +31,6 @@ class TabBarView: UITabBarController {
         
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.systemGreen], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .disabled)
-        
     }
     
     override func viewDidLayoutSubviews() {

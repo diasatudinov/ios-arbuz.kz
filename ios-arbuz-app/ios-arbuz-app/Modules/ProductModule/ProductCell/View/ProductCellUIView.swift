@@ -28,6 +28,7 @@ struct ProductCellUIView: View {
                         .cornerRadius(15)
                         .overlay(
                             Button {
+                                basketManager.favoriteItemToggle(item)
                                 isFavorite.toggle()
                             } label: {
                                 Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -135,9 +136,14 @@ struct ProductCellUIView: View {
                 Spacer()
             }.onAppear {
                 productCount = item.count
+                isFavorite = item.isFavorite
             }
             .onChange(of: item.count) { newValue in
                 productCount = newValue
+            }
+            .onChange(of: item.isFavorite) { newValue in
+                print(newValue)
+                isFavorite = newValue
             }
         
     }

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIView.appearance().isMultipleTouchEnabled = false
         UIView.appearance().isExclusiveTouch = true
         
+        
         return true
     }
 

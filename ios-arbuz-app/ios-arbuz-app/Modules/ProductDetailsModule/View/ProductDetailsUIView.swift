@@ -32,6 +32,7 @@ struct ProductDetailsUIView: View {
                 Spacer()
                 Button {
                     isFavorite.toggle()
+                    basketManager.favoriteItemToggle(item)
                 } label: {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .resizable()
@@ -129,9 +130,7 @@ struct ProductDetailsUIView: View {
                             if item.minQuantityText == "кг" {
                                 kgPrice += Double(item.price)
                             }
-                            
-                        
-                                basketManager.addToSumma(summa: Double(item.price))
+                            basketManager.addToSumma(summa: Double(item.price))
                             
                             
                         } label: {
@@ -224,11 +223,19 @@ struct ProductDetailsUIView: View {
                 }
             }.frame(height: UIScreen.main.bounds.height/14)
         }.onAppear {
-            productCount = item.count 
+            isFavorite = item.isFavorite
+            productCount = item.count
             if item.minQuantityText == "кг" {
                 
                 kgPrice = Double(item.price) * item.count/item.minQuantity
             }
+        }
+        .onChange(of: item.isFavorite) { newValue in
+           
+            print(item.isFavorite)
+            print(newValue)
+            isFavorite = newValue
+            item.isFavorite = newValue
         }
         
     }
