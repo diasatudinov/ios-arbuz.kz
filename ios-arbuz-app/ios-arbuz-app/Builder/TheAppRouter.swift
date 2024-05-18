@@ -10,7 +10,7 @@ import UIKit
 
 final class TheAppRouter {
     
-    enum DestinationIndividual {
+    enum Destination {
         case custom(UIViewController)
         case home
         case tabBar
@@ -20,7 +20,7 @@ final class TheAppRouter {
         case payment
     }
     
-    enum TransitionTypeSingleApp {
+    enum TransitionType {
         case change
         case push(animated: Bool)
         case present(animated: Bool)
@@ -69,7 +69,7 @@ final class TheAppRouter {
         }
     }
     
-    func move(to destination: TheAppRouter.DestinationIndividual, type: TheAppRouter.TransitionTypeSingleApp) {
+    func move(to destination: TheAppRouter.Destination, type: TheAppRouter.TransitionType) {
         var viewController: UIViewController? {
             switch destination {
             case .custom(let viewController):
