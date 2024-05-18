@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct ProductCellUIView: View {
+    @EnvironmentObject var basketManager: BasketManager
     @State var isFavorite: Bool = false
     @State var productCount = 0.0
-    let image: String
-    let name: String
-    let additionalDescription: String
-    let price: Int
-    let minQuantity: Double
-    let minQuantityText: String
+    @State var item: MenuItem
+    
+    init(item: MenuItem) {
+        self.item = item
+    }
+    
     var body: some View {
             VStack(alignment: .leading, spacing: 0){
                 ZStack {
                     Color.clear
-                    Image(image)
+                    Image(item.image)
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width/3.2)
                         .cornerRadius(15)
                         .overlay(
                             Button {
+                                basketManager.favoriteItemToggle(item)
                                 isFavorite.toggle()
                             } label: {
                                 Image(systemName: isFavorite ? "heart.fill" : "heart")
@@ -40,31 +42,36 @@ struct ProductCellUIView: View {
                     
                 }.padding(.bottom, 10)
                 HStack(alignment: .top) {
-                    Text(name)
+                    Text(item.name)
                         .font(.system(size: 10))
                         .lineLimit(2)
                     Spacer()
                 }.frame(width: UIScreen.main.bounds.width/3.2,height: 25)
                 
                 HStack(spacing: 0) {
-                    Text("\(price) ₸/\(minQuantityText)").font(.system(size: 10)).foregroundColor(.gray.opacity(0.6))
+                    Text("\(item.price) ₸/\(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.gray.opacity(0.6))
                     Circle().frame(width: 2, height: 2).padding(.horizontal,5).foregroundColor(.green)
-                    if minQuantity  == 1 {
-                        Text("\(minQuantity, specifier: "%.0f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
+                    if item.minQuantity  == 1 {
+                        Text("\(item.minQuantity, specifier: "%.0f") \(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     } else {
-                        Text("\(minQuantity, specifier: "%.1f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
+                        Text("\(item.minQuantity, specifier: "%.1f") \(item.minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
                     }
                     Spacer()
                 }.padding(.bottom, 15).frame(width: UIScreen.main.bounds.width/3.2)
                 
                 HStack{
-                    if productCount == 0 {
+                    if item.count == 0 {
                         Button{
-                            productCount += minQuantity
+                            productCount += item.minQuantity
+                            basketManager.addItem(item)
+                            
+                            basketManager.addToSumma(summa: Double(item.price))
+                            
+                            print(item.count)
                         } label: {
                             
                             HStack() {
-                                Text("\(price) ₸").font(.system(size: 12)).foregroundColor(.black).bold()
+                                Text("\(item.price) ₸").font(.system(size: 12)).foregroundColor(.black).bold()
                                 Spacer()
                                 Image(systemName: "plus").foregroundColor(.green).font(.system(size: 17))
                                 
@@ -73,11 +80,14 @@ struct ProductCellUIView: View {
                             .padding(7)
                             
                         }
-                    } else if productCount > 0 {
+                    } else if item.count > 0 {
                         HStack {
                             Spacer()
                             Button{
-                                productCount -= minQuantity
+                                productCount -= item.minQuantity
+                                basketManager.removeItem(item)
+                                basketManager.subFromSumma(summa: Double(item.price))
+                                print(item.count)
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -89,20 +99,24 @@ struct ProductCellUIView: View {
                             Spacer()
                             VStack {
                                 
-                                if minQuantity  == 1 {
+                                if item.minQuantity  == 1 {
                                     Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
                                 } else {
                                     Text("\(productCount, specifier: "%.1f")").font(.system(size: 15)).foregroundColor(.white).bold()
                                 }
                                 
                                 
-                                if minQuantityText == "кг"{
+                                if item.minQuantityText == "кг"{
                                     Text("кг").font(.system(size: 10)).foregroundColor(.white).bold()
                                 }
                             }
                             Spacer()
                             Button{
-                                productCount += minQuantity
+                                productCount += item.minQuantity
+                                basketManager.addItem(item)
+                                basketManager.addToSumma(summa: Double(item.price))
+
+                                print(item.count)
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -114,17 +128,27 @@ struct ProductCellUIView: View {
                         }
                         
                     }
-                }.background(productCount == 0 ? Color.gray.opacity(0.2) : Color.green)
-                    .frame(width: productCount == 0 ? UIScreen.main.bounds.width/3.2 : UIScreen.main.bounds.width/3.2)
+                }.background(item.count == 0 ? Color.gray.opacity(0.2) : Color.green)
+                    .frame(width: item.count == 0 ? UIScreen.main.bounds.width/3.2 : UIScreen.main.bounds.width/3.2)
                     .cornerRadius(40)
                 
                 
                 Spacer()
+            }.onAppear {
+                productCount = item.count
+                isFavorite = item.isFavorite
+            }
+            .onChange(of: item.count) { newValue in
+                productCount = newValue
+            }
+            .onChange(of: item.isFavorite) { newValue in
+                print(newValue)
+                isFavorite = newValue
             }
         
     }
 }
 
-#Preview {
-    ProductCellUIView(image: "", name: "", additionalDescription: "", price: 0, minQuantity: 1.0, minQuantityText: "")
-}
+//#Preview {
+//    ProductCellUIView(image: "", name: "", additionalDescription: "", price: 0, minQuantity: 1.0, minQuantityText: "")
+//}

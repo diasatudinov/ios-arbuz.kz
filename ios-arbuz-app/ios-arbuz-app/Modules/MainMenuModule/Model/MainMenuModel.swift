@@ -35,7 +35,11 @@ class PositionData: Identifiable {
 }
 
 
-class MenuItem: Identifiable {
+class MenuItem: Identifiable, Equatable {
+    static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
+        true
+    }
+    
     let id = UUID().uuidString
     let image: String
     let name: String
@@ -46,6 +50,8 @@ class MenuItem: Identifiable {
     let price: Int
     let minQuantity: Double
     let minQuantityText: String
+    var count: Double = 0.0
+    var isFavorite: Bool = false
     
     init(image: String, name: String, description: String, additionalDescription: String, country: String, storageConditions: String, price: Int, minQuantity: Double, minQuantityText: String) {
         self.image = image

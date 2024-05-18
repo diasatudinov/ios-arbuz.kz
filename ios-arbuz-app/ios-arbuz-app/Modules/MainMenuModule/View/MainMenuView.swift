@@ -16,6 +16,7 @@ protocol MainMenuViewProtocol: AnyObject {
 class MainMenuView: UIViewController, ViewTodayHostable {
 
     var presenter: MainMenuPresenterProtocol!
+    var basketManager: BasketManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class MainMenuView: UIViewController, ViewTodayHostable {
         title = "Главная"
         navigationController?.navigationBar.isHidden = true
         if let items = presenter.datas{
-            self.add(hostableView: MainMenuUIView(items: items))
+            self.add(hostableView: MainMenuUIView(items: items).environmentObject(basketManager))
         }
         
     }

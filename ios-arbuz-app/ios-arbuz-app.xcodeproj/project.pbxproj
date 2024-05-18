@@ -28,6 +28,10 @@
 		2B05B78A2BF62ADF00549401 /* AddressUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7892BF62ADF00549401 /* AddressUIView.swift */; };
 		2B05B78C2BF6342200549401 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B78B2BF6342200549401 /* ProductDetailsView.swift */; };
 		2B05B78E2BF6344700549401 /* ProductDetailsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */; };
+		2B05B7912BF75EB900549401 /* BasketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7902BF75EB900549401 /* BasketViewCell.swift */; };
+		2B05B7932BF75F1D00549401 /* BasketUIViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7922BF75F1D00549401 /* BasketUIViewCell.swift */; };
+		2B05B7962BF7854300549401 /* BasketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7952BF7854300549401 /* BasketManager.swift */; };
+		2B05B79A2BF8BE4000549401 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05B7992BF8BE4000549401 /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		2B05B7892BF62ADF00549401 /* AddressUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUIView.swift; sourceTree = "<group>"; };
 		2B05B78B2BF6342200549401 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsUIView.swift; sourceTree = "<group>"; };
+		2B05B7902BF75EB900549401 /* BasketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewCell.swift; sourceTree = "<group>"; };
+		2B05B7922BF75F1D00549401 /* BasketUIViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketUIViewCell.swift; sourceTree = "<group>"; };
+		2B05B7952BF7854300549401 /* BasketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketManager.swift; sourceTree = "<group>"; };
+		2B05B7992BF8BE4000549401 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		2B05B7472BF3A2CE00549401 /* ios-arbuz-app */ = {
 			isa = PBXGroup;
 			children = (
+				2B05B7942BF7853200549401 /* Managers */,
 				2B05B7482BF3A2CE00549401 /* AppDelegate.swift */,
 				2B05B74A2BF3A2CE00549401 /* SceneDelegate.swift */,
 				2B05B74C2BF3A2CE00549401 /* ViewController.swift */,
@@ -198,6 +207,7 @@
 		2B05B77E2BF615FC00549401 /* BasketModule */ = {
 			isa = PBXGroup;
 			children = (
+				2B05B78F2BF75E8800549401 /* ViewCell */,
 				2B05B77F2BF6160700549401 /* View */,
 			);
 			path = BasketModule;
@@ -214,6 +224,7 @@
 		2B05B7822BF6206E00549401 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2B05B7972BF8BDF800549401 /* PaymentModule */,
 				2B05B7852BF620E400549401 /* ProductDetailsModule */,
 				2B05B75F2BF3A6BD00549401 /* TabBarModule */,
 				2B05B7662BF3A7D600549401 /* MainMenuModule */,
@@ -236,6 +247,39 @@
 			children = (
 				2B05B78B2BF6342200549401 /* ProductDetailsView.swift */,
 				2B05B78D2BF6344700549401 /* ProductDetailsUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B05B78F2BF75E8800549401 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7902BF75EB900549401 /* BasketViewCell.swift */,
+				2B05B7922BF75F1D00549401 /* BasketUIViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		2B05B7942BF7853200549401 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7952BF7854300549401 /* BasketManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2B05B7972BF8BDF800549401 /* PaymentModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7982BF8BE1400549401 /* View */,
+			);
+			path = PaymentModule;
+			sourceTree = "<group>";
+		};
+		2B05B7982BF8BE1400549401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B05B7992BF8BE4000549401 /* PaymentViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,7 +362,10 @@
 				2B05B77B2BF4BA3500549401 /* ViewHost.swift in Sources */,
 				2B05B7792BF4B8F900549401 /* ProductCellUIView.swift in Sources */,
 				2B05B7692BF3A80400549401 /* MainMenuView.swift in Sources */,
+				2B05B7912BF75EB900549401 /* BasketViewCell.swift in Sources */,
+				2B05B7932BF75F1D00549401 /* BasketUIViewCell.swift in Sources */,
 				2B05B7492BF3A2CE00549401 /* AppDelegate.swift in Sources */,
+				2B05B7962BF7854300549401 /* BasketManager.swift in Sources */,
 				2B05B7632BF3A70900549401 /* TabBarViewPresenter.swift in Sources */,
 				2B05B76C2BF3A83E00549401 /* MainMenuPresenter.swift in Sources */,
 				2B05B74B2BF3A2CE00549401 /* SceneDelegate.swift in Sources */,
@@ -329,6 +376,7 @@
 				2B05B78A2BF62ADF00549401 /* AddressUIView.swift in Sources */,
 				2B05B75E2BF3A55700549401 /* Builder.swift in Sources */,
 				2B05B78C2BF6342200549401 /* ProductDetailsView.swift in Sources */,
+				2B05B79A2BF8BE4000549401 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

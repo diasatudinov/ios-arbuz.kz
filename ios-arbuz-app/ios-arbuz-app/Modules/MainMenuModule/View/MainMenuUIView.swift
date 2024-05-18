@@ -12,7 +12,8 @@ import UIKit
 struct MainMenuUIView: View {
     
     
-    var items: [MenuItem]
+    @EnvironmentObject var basketManager: BasketManager
+    @State var items: [MenuItem]
     @State private var headerOffset: CGFloat = 0
     @State private var isHeaderHidden = false
     
@@ -38,10 +39,6 @@ struct MainMenuUIView: View {
                 VStack(alignment: .leading) {
                     if !isHeaderHidden {
                         Button {
-//                            let navigationController = UINavigationController()
-//                            let nextVC = UINavigationController(rootViewController: BasketView())
-//                            //UINavigationController.pushViewController(nextVC)
-//                            navigationController.present(nextVC, animated: true)
                             TheAppRouter.shared.move(to: .address, type: .present(animated: true))
                             
                         } label: {
@@ -56,12 +53,14 @@ struct MainMenuUIView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(items.reversed().prefix(6)) { item in
-                                ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
+                                ProductCellUIView(item: item)
                                     .frame(height: UIScreen.main.bounds.height/3.5)
                                     .onTapGesture {
                                         print(item.name)
+                                        print(basketManager.items)
+                                        print(basketManager.items.first?.count)
                                         TheAppRouter.shared.move(
-                                            to: .productDetails(image: item.image, name: item.name, description: item.description, additionalDescription: item.additionalDescription, storageConditions: item.storageConditions, country: item.country, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText),
+                                            to: .productDetails(item: item, basketManager: basketManager),
                                             type: .present(animated: true)
                                         )
                                     }
@@ -74,12 +73,11 @@ struct MainMenuUIView: View {
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)], spacing: 8) {
                         ForEach(items.prefix(6)) { item in
                             VStack {
-                                ProductCellUIView(image: item.image, name: item.name, additionalDescription: item.additionalDescription, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText)
-                                    .frame(height: UIScreen.main.bounds.height/3.5)
+                                ProductCellUIView(item: item)
                                     .onTapGesture {
                                         print(item.name)
                                         TheAppRouter.shared.move(
-                                            to: .productDetails(image: item.image, name: item.name, description: item.description, additionalDescription: item.additionalDescription, storageConditions: item.storageConditions, country: item.country, price: item.price, minQuantity: item.minQuantity, minQuantityText: item.minQuantityText),
+                                            to: .productDetails(item: item, basketManager: basketManager),
                                             type: .present(animated: true)
                                         )
                                     }

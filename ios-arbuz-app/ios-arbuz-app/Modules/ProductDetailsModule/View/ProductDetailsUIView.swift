@@ -8,18 +8,13 @@
 import SwiftUI
 
 struct ProductDetailsUIView: View {
+    @EnvironmentObject var basketManager: BasketManager
+
     @State var isFavorite: Bool = false
     @State var productCount = 0.0
     @State var kgPrice = 0.0
-    let image: String
-    let name: String
-    let description: String
-    let additionalDescription: String
-    let country: String
-    let storageConditions: String
-    let price: Int
-    let minQuantity: Double
-    let minQuantityText: String
+    let item: MenuItem
+    
     var body: some View {
         VStack(spacing: 0){
             HStack {
@@ -37,6 +32,7 @@ struct ProductDetailsUIView: View {
                 Spacer()
                 Button {
                     isFavorite.toggle()
+                    basketManager.favoriteItemToggle(item)
                 } label: {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .resizable()
@@ -51,7 +47,7 @@ struct ProductDetailsUIView: View {
                 VStack {
                     ZStack {
                         Color.clear
-                        Image(image)
+                        Image(item.image)
                             .resizable()
                             .scaledToFit()
                             .frame(width: UIScreen.main.bounds.width)
@@ -59,14 +55,14 @@ struct ProductDetailsUIView: View {
                         
                     }.padding(.bottom, 10)
                     
-                    Text(name)
+                    Text(item.name)
                         .font(.system(size: 20, weight: .bold))
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .padding(.horizontal, 5)
                         .padding(.bottom, 5)
                     
-                    Text("\(price) ₸/\(minQuantityText)")
+                    Text("\(item.price) ₸/\(item.minQuantityText)")
                         .font(.system(size: 15))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.gray.opacity(0.7))
@@ -79,16 +75,16 @@ struct ProductDetailsUIView: View {
                             .padding(.bottom, 5)
                         Spacer()
                     }
-                    Text(description)
+                    Text(item.description)
                         .font(.system(size: 15))
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal, 10)
                     
                     Divider().padding(10)
-                    if storageConditions != "" {
+                    if item.storageConditions != "" {
                         DisclosureGroup {
                             HStack {
-                                Text(storageConditions)
+                                Text(item.storageConditions)
                                     .font(.system(size: 15))
                                     .foregroundColor(.gray.opacity(0.8))
                                     .padding(.horizontal, 10)
@@ -102,10 +98,10 @@ struct ProductDetailsUIView: View {
                         }
                         Divider().padding(10)
                     }
-                    if country != "" {
+                    if item.country != "" {
                         DisclosureGroup {
                             HStack {
-                                Text(country)
+                                Text(item.country)
                                     .font(.system(size: 15))
                                     .foregroundColor(.gray.opacity(0.8))
                                     .padding(.horizontal, 10)
@@ -129,22 +125,25 @@ struct ProductDetailsUIView: View {
                 HStack{
                     if productCount == 0 {
                         Button{
-                            
-                            productCount += minQuantity
-                            if minQuantityText == "кг" {
-                                kgPrice += Double(price)
+                            basketManager.addItem(item)
+                            productCount += item.minQuantity
+                            if item.minQuantityText == "кг" {
+                                kgPrice += Double(item.price)
                             }
+                            basketManager.addToSumma(summa: Double(item.price))
+                            
+                            
                         } label: {
                             
                             HStack(spacing: 7) {
                                 VStack{
-                                    Text("\(price) ₸").font(.system(size: 18)).foregroundColor(.white).bold()
+                                    Text("\(item.price) ₸").font(.system(size: 18)).foregroundColor(.white).bold()
                                     
-                                    if minQuantityText == "кг"{
-                                        if minQuantity  == 1 {
-                                            Text("за \(minQuantity, specifier: "%.0f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
+                                    if item.minQuantityText == "кг"{
+                                        if item.minQuantity  == 1 {
+                                            Text("за \(item.minQuantity, specifier: "%.0f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
                                         } else {
-                                            Text("за \(minQuantity, specifier: "%.1f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
+                                            Text("за \(item.minQuantity, specifier: "%.1f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
                                         }
                                     } else {
                                         Text("за шт").font(.system(size: 10)).foregroundColor(.white).bold()
@@ -163,10 +162,15 @@ struct ProductDetailsUIView: View {
                             
                             Button{
                                 if productCount > 0 {
-                                    productCount -= minQuantity
-                                    if minQuantityText == "кг" {
-                                        kgPrice -= Double(price)
+                                    basketManager.removeItem(item)
+                                    productCount -= item.minQuantity
+                                    if item.minQuantityText == "кг" {
+                                        kgPrice -= Double(item.price)
                                     }
+                                    
+                                    
+                                    basketManager.subFromSumma(summa: Double(item.price))
+                                    
                                 }
                                 
                             } label: {
@@ -178,13 +182,13 @@ struct ProductDetailsUIView: View {
                             }
                             Spacer()
                             VStack {
-                                if minQuantityText == "кг"{
+                                if item.minQuantityText == "кг"{
                                     Text("\(kgPrice, specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
                                 } else {
-                                    Text("\(productCount*Double(price), specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
+                                    Text("\(productCount*Double(item.price), specifier: "%.0f") ₸").font(.system(size: 25)).foregroundColor(.white).bold()
                                 }
-                                if minQuantityText == "кг"{
-                                    if minQuantity  == 1 {
+                                if item.minQuantityText == "кг"{
+                                    if item.minQuantity  == 1 {
                                         Text("за \(productCount, specifier: "%.0f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
                                     } else {
                                         Text("за \(productCount, specifier: "%.1f") кг").font(.system(size: 15)).foregroundColor(.white).bold()
@@ -193,25 +197,18 @@ struct ProductDetailsUIView: View {
                                     Text("\(productCount, specifier: "%.0f") шт").font(.system(size: 10)).foregroundColor(.white).bold()
                                     
                                 }
-                                
-                                
-//                                if minQuantity  == 1 {
-//                                    
-//                                } else {
-//                                    Text("\(productCount*Double(price), specifier: "%.1f")").font(.system(size: 25)).foregroundColor(.white).bold()
-//                                }
-//                                
-//                                
-//                                if minQuantityText == "кг"{
-//                                    Text("кг").font(.system(size: 10)).foregroundColor(.white).bold()
-//                                }
                             }
                             Spacer()
                             Button{
-                                productCount += minQuantity
-                                if minQuantityText == "кг" {
-                                    kgPrice += Double(price)
+                                basketManager.addItem(item)
+                                productCount += item.minQuantity
+                                if item.minQuantityText == "кг" {
+                                    kgPrice += Double(item.price)
                                 }
+                                
+                                    basketManager.addToSumma(summa: Double(item.price))
+                                
+                                
                             } label: {
                                 
                                 HStack(spacing: 10) {
@@ -225,115 +222,25 @@ struct ProductDetailsUIView: View {
                     }
                 }
             }.frame(height: UIScreen.main.bounds.height/14)
+        }.onAppear {
+            isFavorite = item.isFavorite
+            productCount = item.count
+            if item.minQuantityText == "кг" {
+                
+                kgPrice = Double(item.price) * item.count/item.minQuantity
+            }
         }
-//            VStack(alignment: .leading, spacing: 0){
-//                ZStack {
-//                    Color.clear
-//                    Image(image)
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: UIScreen.main.bounds.width/3.2)
-//                        .cornerRadius(15)
-//                        .overlay(
-//                            Button {
-//                                isFavorite.toggle()
-//                            } label: {
-//                                Image(systemName: isFavorite ? "heart.fill" : "heart")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .foregroundColor(isFavorite ? .red : .black)
-//                                    .frame(width: 18)
-//                            }.offset(x: 45, y: -45)
-//                            
-//                        )
-//                    
-//                }.padding(.bottom, 10)
-//                HStack(alignment: .top) {
-//                    Text(name)
-//                        .font(.system(size: 10))
-//                        .lineLimit(2)
-//                    Spacer()
-//                }.frame(width: UIScreen.main.bounds.width/3.2,height: 25)
-//                
-//                HStack(spacing: 0) {
-//                    Text("\(price) ₸/\(minQuantityText)").font(.system(size: 10)).foregroundColor(.gray.opacity(0.6))
-//                    Circle().frame(width: 2, height: 2).padding(.horizontal,5).foregroundColor(.green)
-//                    if minQuantity  == 1 {
-//                        Text("\(minQuantity, specifier: "%.0f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
-//                    } else {
-//                        Text("\(minQuantity, specifier: "%.1f") \(minQuantityText)").font(.system(size: 10)).foregroundColor(.green)
-//                    }
-//                    Spacer()
-//                }.padding(.bottom, 15).frame(width: UIScreen.main.bounds.width/3.2)
-//                
-//                HStack{
-//                    if productCount == 0 {
-//                        Button{
-//                            productCount += minQuantity
-//                        } label: {
-//                            
-//                            HStack() {
-//                                Text("\(price) ₸").font(.system(size: 12)).foregroundColor(.black).bold()
-//                                Spacer()
-//                                Image(systemName: "plus").foregroundColor(.green).font(.system(size: 17))
-//                                
-//                            }
-//                            .padding(.horizontal, 10)
-//                            .padding(7)
-//                            
-//                        }
-//                    } else if productCount > 0 {
-//                        HStack {
-//                            Spacer()
-//                            Button{
-//                                productCount -= minQuantity
-//                            } label: {
-//                                
-//                                HStack(spacing: 10) {
-//                                    Image(systemName: "minus").foregroundColor(.white).font(.system(size: 17))
-//                                }
-//                                .padding(7)
-//                                
-//                            }
-//                            Spacer()
-//                            VStack {
-//                                
-//                                if minQuantity  == 1 {
-//                                    Text("\(productCount, specifier: "%.0f")").font(.system(size: 15)).foregroundColor(.white).bold()
-//                                } else {
-//                                    Text("\(productCount, specifier: "%.1f")").font(.system(size: 15)).foregroundColor(.white).bold()
-//                                }
-//                                
-//                                
-//                                if minQuantityText == "кг"{
-//                                    Text("кг").font(.system(size: 10)).foregroundColor(.white).bold()
-//                                }
-//                            }
-//                            Spacer()
-//                            Button{
-//                                productCount += minQuantity
-//                            } label: {
-//                                
-//                                HStack(spacing: 10) {
-//                                    Image(systemName: "plus").foregroundColor(.white).font(.system(size: 17))
-//                                }
-//                                .padding(7)
-//                            }
-//                            Spacer()
-//                        }
-//                        
-//                    }
-//                }.background(productCount == 0 ? Color.gray.opacity(0.2) : Color.green)
-//                    .frame(width: productCount == 0 ? UIScreen.main.bounds.width/3.2 : UIScreen.main.bounds.width/3.2)
-//                    .cornerRadius(40)
-//                
-//                
-//                Spacer()
-//            }
+        .onChange(of: item.isFavorite) { newValue in
+           
+            print(item.isFavorite)
+            print(newValue)
+            isFavorite = newValue
+            item.isFavorite = newValue
+        }
         
     }
 }
 
-#Preview {
-    ProductDetailsUIView(image: "item1", name: "Абрикосы кг", description: "Абрикос Шалах любим во многих странах, ведь его можно добавлять в любые десерты, делать коктейли, соки, варить компоты, в нем содержится большое количество микроэлементов, именно поэтому это фрукт показан при авитаминозе и анемии.", additionalDescription: "-20%", country: "Узбекистан", storageConditions: "от +4° до +8°", price: 3550, minQuantity: 0.5, minQuantityText: "кг")
-}
+//#Preview {
+//    ProductDetailsUIView(image: "item1", name: "Абрикосы кг", description: "Абрикос Шалах любим во многих странах, ведь его можно добавлять в любые десерты, делать коктейли, соки, варить компоты, в нем содержится большое количество микроэлементов, именно поэтому это фрукт показан при авитаминозе и анемии.", additionalDescription: "-20%", country: "Узбекистан", storageConditions: "от +4° до +8°", price: 3550, minQuantity: 0.5, minQuantityText: "кг")
+//}

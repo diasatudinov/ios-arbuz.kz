@@ -16,7 +16,8 @@ final class TheAppRouter {
         case tabBar
         case basket
         case address
-        case productDetails(image: String, name: String, description: String, additionalDescription: String, storageConditions: String, country: String, price: Int, minQuantity: Double, minQuantityText: String)
+        case productDetails(item: MenuItem, basketManager: BasketManager)
+        case payment
     }
     
     enum TransitionTypeSingleApp {
@@ -31,7 +32,7 @@ final class TheAppRouter {
     
     // MARK: - Variables
     
-    public let navigationSuperController = UINavigationController()
+    public let navigationController = UINavigationController()
     
     
     
@@ -40,8 +41,8 @@ final class TheAppRouter {
     // MARK: - Init
     
     private init() {
-        self.navigationSuperController.navigationBar.isHidden = true
-        self.navigationSuperController.isNavigationBarHidden = true
+        self.navigationController.navigationBar.isHidden = true
+        self.navigationController.isNavigationBarHidden = true
         
         let blankController = UIViewController()
         blankController.view.backgroundColor = UIColor(named: "background")
@@ -58,13 +59,13 @@ final class TheAppRouter {
     
     func back() {
         DispatchQueue.main.async {
-            self.navigationSuperController.popViewController(animated: true)
+            self.navigationController.popViewController(animated: true)
         }
     }
     
     func backFromSheet() {
         DispatchQueue.main.async {
-            self.navigationSuperController.dismiss(animated: true)
+            self.navigationController.dismiss(animated: true)
         }
     }
     
@@ -95,10 +96,12 @@ final class TheAppRouter {
                     return vc
                 }
 
-            case .productDetails(image: let image, name: let name, description: let description, additionalDescription: let additionalDescription, storageConditions: let storageConditions, country: let country, price: let price, minQuantity: let minQuantity, minQuantityText: let minQuantityText):
+            case .productDetails(item: let item, basketManager: let basketManager):
                 let productDetailsVC = ProductDetailsView()
-                productDetailsVC.setup(image: image, name: name, description: description, additionalDescription: additionalDescription, storageConditions: storageConditions, country: country, price: price, minQuantity: minQuantity, minQuantityText: minQuantityText)
+                productDetailsVC.setup(item: item, basketManager: basketManager)
                 return productDetailsVC
+            case .payment:
+                return PaymentViewController()
             }
         
         }
@@ -109,13 +112,14 @@ final class TheAppRouter {
             if let viewController {
                 switch type {
                 case .change:
-                    self.navigationSuperController.setViewControllers([viewController], animated: false)
+                    self.navigationController.setViewControllers([viewController], animated: false)
                 case .push(let animated):
-                    self.navigationSuperController.pushViewController(viewController, animated: animated)
+                    self.navigationController.pushViewController(viewController, animated: animated)
                 case .present(let animated):
-                    self.navigationSuperController.present(viewController, animated: animated)
+                    self.navigationController.present(viewController, animated: animated)
                 }
             }
+            
         }
         
         

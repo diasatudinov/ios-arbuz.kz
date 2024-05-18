@@ -10,6 +10,7 @@ import SwiftUI
 
 class ProductDetailsView: UIViewController, ViewTodayHostable {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,9 +20,9 @@ class ProductDetailsView: UIViewController, ViewTodayHostable {
         
     }
     
-    public func setup(image: String, name: String, description: String, additionalDescription: String, storageConditions: String, country: String, price: Int, minQuantity: Double, minQuantityText: String) {
+    public func setup(item: MenuItem, basketManager: BasketManager) {
         
-        self.add(hostableView: ProductDetailsUIView(image: image, name: name, description: description, additionalDescription: additionalDescription, country: country, storageConditions: storageConditions, price: price, minQuantity: minQuantity, minQuantityText: minQuantityText))
+        self.add(hostableView: ProductDetailsUIView(item: item).environmentObject(basketManager))
         //self.addFeel(hostableView: SourcesViewTextOne(image: image, group: group))
     }
     
